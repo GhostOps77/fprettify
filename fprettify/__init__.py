@@ -463,11 +463,7 @@ F90_CONSTANTS_RE = re.compile(r"\b(" + "|".join((
     "lock_type", "atomic_int_kind", "atomic_logical_kind",
     )) + r")\b", RE_FLAGS)
 
-F90_INT_RE = r"[-+]?[0-9]+"
-F90_FLOAT_RE = r"[-+]?([0-9]+\.[0-9]*|\.[0-9]+)"
-F90_NUMBER_RE = "(" + F90_INT_RE + "|" + F90_FLOAT_RE + ")"
-F90_FLOAT_EXP_RE = F90_NUMBER_RE + r"[eEdD]" + F90_NUMBER_RE
-F90_NUMBER_ALL_RE = "(" + F90_NUMBER_RE + "|" + F90_FLOAT_EXP_RE + ")"
+F90_NUMBER_ALL_RE = r"[-+]?([0-9]+(\.[0-9]*)?|\.[0-9]+)([dDeE][-+]?[0-9]+)?"
 F90_NUMBER_ALL_REC = re.compile(F90_NUMBER_ALL_RE, RE_FLAGS)
 
 ## F90_CONSTANTS_TYPES_RE = re.compile(r"\b" + F90_NUMBER_ALL_RE + "_(" + "|".join([a + r"\b" for a in (
