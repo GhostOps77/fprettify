@@ -269,7 +269,7 @@ class plusminus_parser(parser_re):
 LR_OPS_RE = [REL_OP_RE, LOG_OP_RE, plusminus_parser(PLUSMINUS_RE), MULTDIV_RE, PRINT_RE]
 
 USE_RE = re.compile(
-    SOL_STR + "USE(\s+|(,.+?)?::\s*)\w+?((,.+?=>.+?)+|,\s*only\s*:.+?)?$" + EOL_STR, RE_FLAGS)
+    SOL_STR + r"USE(\s+|(,.+?)?::\s*)\w+?((,.+?=>.+?)+|,\s*only\s*:.+?)?$" + EOL_STR, RE_FLAGS)
 
 # markups to deactivate formatter
 NO_ALIGN_RE = re.compile(SOL_STR + r"&\s*[^\s*]+")
@@ -468,7 +468,7 @@ F90_NUMBER_ALL_REC = re.compile(F90_NUMBER_ALL_RE, RE_FLAGS)
 
 ## F90_CONSTANTS_TYPES_RE = re.compile(r"\b" + F90_NUMBER_ALL_RE + "_(" + "|".join([a + r"\b" for a in (
 F90_CONSTANTS_TYPES_RE = re.compile(
-    r"(" + F90_NUMBER_ALL_RE + ")*_(" + "|".join((
+    r"(" + F90_NUMBER_ALL_RE + ")_(" + "|".join((
     ## F2003 iso_fortran_env constants.
     ## F2003 iso_c_binding constants.
     "c_int", "c_short", "c_long", "c_long_long", "c_signed_char",
